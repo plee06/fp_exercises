@@ -16,13 +16,24 @@ package orig
  *
  * Utilizes Pattern matching with the when statement.
  * On emptyList, return an emptyList
- * otherwise, we drop the first element and returns the rest of the list 
+ * otherwise, we drop the first element and returns the rest of the list
  * */
 fun <T> tail(l: List<T>): List<T> = when (l) {
     emptyList<T>() -> emptyList()
     else -> l.drop(1)
 }
 
+/**
+ *
+ *
+ * setHead:
+ * takes a list and replaces the first element. If the list is empty, it simply inserts the element into the empty list.
+ * Question: Can you use the tail function you have just written for this?
+ * Example: setHead(listOf(1,2,3), 0) = listOf(0,2,3)
+ *
+ *
+ *
+ * */
 fun <T> setHead(l: List<T>, item: T): List<T> = TODO()
 
 fun <T> drop(l: List<T>, n: Int): List<T> = TODO()
