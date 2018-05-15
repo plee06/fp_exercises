@@ -39,7 +39,30 @@ fun <T> setHead(l: List<T>, item: T): List<T> = when (l) {
     else -> listOf(item) + tail(l) // Create a new list with the one item, concatenate with the tail end, all elements except first
 }
 
-fun <T> drop(l: List<T>, n: Int): List<T> = TODO()
+/**
+ * drop:
+ * removes the first N elements from the given list.
+ * If the number of elements to remove exceeds the number of elements in the list, drop will return an empty list.
+ * Hint: You have multiple base cases here.
+ * Example: drop(listOf(1,2,3,4), 3) = listOf(4)
+ *
+ *
+ * */
+fun <T> drop(l: List<T>, n: Int): List<T> = when (l) {
+    emptyList<T>() -> emptyList<T>() // return an empty list
+    // recursively call drop with the tail function being called on the list
+    // tail function will remove the first element and return the remaining list
+    // it will do this until n is 0 at which case it's done it n number of times!
+    else -> when (n) {
+        // base case of when n hits 0, when it does just return the list
+        0 -> l
+        // otherwise we recursively run through and call tail dropping the first item and returning the rest
+        // n times. n - 1 times because pass in 5 that means we need to remove 5 times
+        // so 4 3 2 1 0  = 5 - 1 iterations
+        else -> drop(tail(l), n - 1)
+    }
+
+}
 
 fun <T> init(l: List<T>): List<T> = TODO()
 
