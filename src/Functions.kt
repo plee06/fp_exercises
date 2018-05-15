@@ -34,7 +34,10 @@ fun <T> tail(l: List<T>): List<T> = when (l) {
  *
  *
  * */
-fun <T> setHead(l: List<T>, item: T): List<T> = TODO()
+fun <T> setHead(l: List<T>, item: T): List<T> = when (l) {
+    emptyList<T>() -> listOf(item)
+    else -> listOf(item) + tail(l) // Create a new list with the one item, concatenate with the tail end, all elements except first
+}
 
 fun <T> drop(l: List<T>, n: Int): List<T> = TODO()
 
