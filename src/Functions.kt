@@ -64,7 +64,18 @@ fun <T> drop(l: List<T>, n: Int): List<T> = when (l) {
 
 }
 
-fun <T> init(l: List<T>): List<T> = TODO()
+/**
+ * init:
+ * is the opposite of tail: It removes the last element of the list. Remember that you are not modifying the input list,
+ * but building a new list. Calling init on an empty list throws an IllegalArgumentException.
+ * Example: init(listOf(1,2,3)) = listOf(1,2).
+ *
+ *
+ * */
+fun <T> init(l: List<T>): List<T> = when (l) {
+    emptyList<T>() -> emptyList()
+    else -> l.dropLast(1) // remove last element, .dropLast removes last element and returns a new list
+}
 
 fun <T> foldLeft(l: List<T>, initial : T, f: (T, T) -> T): T = TODO()
 
